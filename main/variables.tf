@@ -25,12 +25,12 @@ variable "machine_type" {
 
 variable "min_node" {
   description = "Minimum number of nodes"
-  default     = 2
+  default     = 1
 }
 
 variable "max_node" {
   description = "Maximum number of nodes"
-  default     = 4
+  default     = 2
 }
 
 variable "network" {
@@ -51,4 +51,34 @@ variable "ip_range_pods_name" {
 variable "ip_range_services_name" {
   description = "The secondary ip range to use for services"
   default     = "ip-range-services"
+}
+
+# DATABASE
+variable "db_version" {
+  description = "The version of the database"
+  default = "POSTGRES_11"
+}
+
+variable "db_tier" {
+  description = "The machine tier"
+  default = "db-f1-micro"
+}
+
+variable "db_instance_access_cidr" {
+  description = "The IPv4 CIDR to provide access the database instance"
+  default = "0.0.0.0/0"
+}
+
+# database settings
+variable db_name {
+  description = "Name of the default database to create"
+  default = "stacklabstest"
+}
+variable db_charset {
+  description = "The charset for the default database"
+  default = ""
+}
+variable db_collation {
+  description = "The collation for the default database"
+  default = ""
 }

@@ -18,6 +18,21 @@ variable "region" {
   default     = "us-central1"
 }
 
+variable "machine_type" {
+  description = "The Machine Type"
+  default     = "e2-medium"
+}
+
+variable "min_node" {
+  description = "Minimum number of nodes"
+  default     = 2
+}
+
+variable "max_node" {
+  description = "Maximum number of nodes"
+  default     = 4
+}
+
 variable "network" {
   description = "The VPC network created to host the cluster in"
   default     = "gke-network"

@@ -20,10 +20,10 @@ module "gke" {
   node_pools = [
     {
       name                      = "node-pool"
-      machine_type              = "e2-medium"
+      machine_type              = "${var.machine_type}"
       node_locations            = "us-central1-a,us-central1-b,us-central1-c,us-central1-f"
-      min_count                 = 1
-      max_count                 = 2
+      min_count                 = var.min_node
+      max_count                 = var.max_node
       disk_size_gb              = 30
 
       preemptible               = true

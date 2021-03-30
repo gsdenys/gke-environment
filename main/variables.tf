@@ -1,6 +1,6 @@
 variable "project_id" {
   description = "The project ID to host the cluster in"
-  default = "test-stacklabs-2"
+  #default = "test-stacklabs-2"
 }
 
 variable "cluster_name" {
@@ -10,7 +10,7 @@ variable "cluster_name" {
 
 variable "env_name" {
   description = "The environment for the GKE cluster"
-  default     = "test"
+  #default     = "test"
 }
 
 variable "region" {

@@ -46,10 +46,3 @@ resource "google_sql_database" "postgresql_db" {
   charset = var.db_charset
   collation = var.db_collation
 }
-
-# resource "google_sql_user" "users" {
-#   name     = "me"
-#   instance = google_sql_database_instance.postgresql.name
-#   type     = "CLOUD_IAM_SERVICE_ACCOUNT"
-#   project = var.project_id
-# }

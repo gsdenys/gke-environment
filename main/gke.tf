@@ -17,6 +17,12 @@ module "gke" {
   ip_range_pods          = var.ip_range_pods_name
   ip_range_services      = var.ip_range_services_name
   remove_default_node_pool	= true
+
+  #Make registry visible to gke
+  grant_registry_access = true
+  registry_project_ids = [var.project_id]
+  service_account = "create"
+
   node_pools = [
     {
       name                      = "node-pool"

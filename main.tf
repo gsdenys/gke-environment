@@ -1,6 +1,6 @@
 variable "project_id" {
   description = "The project ID to host the cluster in"
-  default = "test-stacklabs-3"
+  default = "test-stacklabs-4"
 }
 
 module "dev_cluster" {

@@ -4,6 +4,7 @@ module "gke_auth" {
   project_id   = var.project_id
   location     = module.gke.location
   cluster_name = module.gke.name
+  use_private_endpoint = true
 }
 
 module "gke" {
@@ -27,12 +28,13 @@ module "gke" {
     {
       name                      = "node-pool"
       machine_type              = var.machine_type
-      node_locations            = "us-central1-a,us-central1-b,us-central1-c,us-central1-f"
+      node_locations            = var.node_locations
       min_count                 = var.min_node
       max_count                 = var.max_node
-      disk_size_gb              = 30
+      disk_size_gb              = var.disk_size_gb
 
-      preemptible               = true
+      service_account           = var.service_account
+      preemptible               = var.preemptible
     },
   ]
 }

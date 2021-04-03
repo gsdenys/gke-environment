@@ -5,6 +5,7 @@ metadata:
   annotations:
     cloud.google.com/load-balancer-type: "External"
     kubernetes.io/ingress.class: "gce"
+    namespace: default
 spec:
   rules:
     - http:

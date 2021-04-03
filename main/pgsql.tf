@@ -39,10 +39,17 @@ resource "google_sql_database_instance" "postgresql" {
 }
 
 # create database
-resource "google_sql_database" "postgresql_db" {
+resource "google_sql_database" "app2" {
   name = var.db_name
   project = var.project_id
   instance = google_sql_database_instance.postgresql.name
   charset = var.db_charset
   collation = var.db_collation
+}
+
+resource "google_sql_user" "users" {
+  name     = "app2"
+  password = "app2"
+  instance = google_sql_database_instance.postgresql.name
+  project = var.project_id
 }

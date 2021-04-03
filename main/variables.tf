@@ -4,17 +4,26 @@ variable "project_id" {
 
 variable "cluster_name" {
   description = "The name for the GKE cluster"
-  default     = "k8s-cluster"
+  default     = "kb8s-cluster"
 }
 
 variable "env_name" {
   description = "The environment for the GKE cluster"
-  #default     = "test"
+}
+
+variable "service_account" {
+  description = "Service account"
+  default = ""
 }
 
 variable "region" {
   description = "The region to host the cluster in"
   default     = "us-central1"
+}
+
+variable "node_locations" {
+  description = "The location to host the cluster in"
+  default = "us-central1-a,us-central1-b,us-central1-c,us-central1-f"
 }
 
 variable "machine_type" {
@@ -52,7 +61,33 @@ variable "ip_range_services_name" {
   default     = "ip-range-services"
 }
 
-# DATABASE
+variable "subnet_ip" {
+  description = "Subnet IP"
+  default     = "10.10.0.0/16"
+}
+
+variable "ip_cidr_range_pods" {
+  description = "ip_cidr_range"
+  default     = "10.20.0.0/16"
+}
+
+variable "ip_cidr_range_services" {
+  description = "ip_cidr_range"
+  default     = "10.30.0.0/16"
+}
+
+variable "storage_member" {
+  description = ""
+  default     = "gsdenys@gmail.com"
+}
+
+variable "storage_location" {
+  description = ""
+  default     = "US"
+}
+
+
+# Postgresql
 variable "db_version" {
   description = "The version of the database"
   default = "POSTGRES_11"
@@ -68,15 +103,28 @@ variable "db_instance_access_cidr" {
   default = "0.0.0.0/0"
 }
 
-# database settings
+variable "disk_size_gb" {
+  description = "Disk size in GB"
+  default = 30
+}
+
+variable "preemptible" {
+  description = "is preemptible"
+  default = true
+}
+
+
+# database
 variable db_name {
   description = "Name of the default database to create"
   default = "stacklabstest"
 }
+
 variable db_charset {
   description = "The charset for the default database"
   default = ""
 }
+
 variable db_collation {
   description = "The collation for the default database"
   default = ""

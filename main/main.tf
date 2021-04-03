@@ -1,6 +1,9 @@
 provider "google" {}
 
-resource "local_file" "kubeconfig" {
-  content  = module.gke_auth.kubeconfig_raw
-  filename = "kubeconfig-${var.env_name}"
+terraform {
+  required_version = ">= 0.14.09"
+  backend "gcs" {
+    bucket = "stacklabs-gsdenys-tfstatus"
+    prefix = "terraform/infra/state"
+  }
 }
